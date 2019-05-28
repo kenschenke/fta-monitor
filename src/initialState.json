@@ -1,0 +1,179 @@
+{
+  "statusBar": {
+    "match": "Q32",
+    "status": "Ready to Pre-Start",
+    "aheadBehind": "6m behind"
+  },
+  "matches": [
+    {
+      "match": "Q27",
+      "sched": "3:34p",
+      "r1": "1710",
+      "r2": "1939",
+      "r3": "1806",
+      "b1": "6886",
+      "b2": "5019",
+      "b3": "1723",
+      "rs": "58",
+      "bs": "49"
+    },
+    {
+      "match": "Q28",
+      "sched": "3:41p",
+      "r1": "1986",
+      "r2": "1847",
+      "r3": "1825",
+      "b1": "1730",
+      "b2": "1997",
+      "b3": "1094",
+      "rs": "66",
+      "bs": "34"
+    },
+    {
+      "match": "Q29",
+      "sched": "3:48p",
+      "r1": "1619",
+      "r2": "1477",
+      "r3": "1775",
+      "b1": "1719",
+      "b2": "1881",
+      "b3": "935",
+      "rs": "84",
+      "bs": "56"
+    },
+    {
+      "match": "Q30",
+      "sched": "3:55p",
+      "r1": "254",
+      "r2": "914",
+      "r3": "31",
+      "b1": "323",
+      "b2": "1091",
+      "b3": "938",
+      "rs": "77",
+      "bs": "48"
+    },
+    {
+      "match": "Q31",
+      "sched": "4:02p",
+      "r1": "118",
+      "r2": "16",
+      "r3": "4119",
+      "b1": "4522",
+      "b2": "1114",
+      "b3": "455",
+      "rs": "76",
+      "bs": "54"
+    },
+    {
+      "match": "Q32",
+      "sched": "4:09p",
+      "r1": "1777",
+      "r2": "1785",
+      "r3": "1918",
+      "b1": "1909",
+      "b2": "543",
+      "b3": "614",
+      "rs": "--",
+      "bs": "--"
+    },
+    {
+      "match": "Q33",
+      "sched": "4:16p",
+      "r1": "954",
+      "r2": "610",
+      "r3": "1081",
+      "b1": "717",
+      "b2": "478",
+      "b3": "5019",
+      "rs": "--",
+      "bs": "--"
+    },
+    {
+      "match": "Q34",
+      "sched": "4:23p",
+      "r1": "909",
+      "r2": "1181",
+      "r3": "33",
+      "b1": "547",
+      "b2": "981",
+      "b3": "1081",
+      "rs": "--",
+      "bs": "--"
+    },
+    {
+      "match": "Q35",
+      "sched": "4:30p",
+      "r1": "508",
+      "r2": "1517",
+      "r3": "1801",
+      "b1": "1771",
+      "b2": "1907",
+      "b3": "1181",
+      "rs": "--",
+      "bs": "--"
+    }
+  ],
+  "teams": {
+    "r1": {
+      "team": "1918",
+      "dsConnected": true,
+      "dsGood": true,
+      "radioConnected": false,
+      "rioConnected": true,
+      "fmsConnected": true,
+      "bypassed": false,
+      "status": "Tele"
+    },
+    "r2": {
+      "team": "1785",
+      "dsConnected": false,
+      "dsGood": true,
+      "radioConnected": true,
+      "rioConnected": false,
+      "fmsConnected": false,
+      "bypassed": false,
+      "status": "Disabled"
+    },
+    "r3": {
+      "team": "1777",
+      "dsConnected": true,
+      "dsGood": true,
+      "radioConnected": false,
+      "rioConnected": true,
+      "fmsConnected": true,
+      "bypassed": false,
+      "status": "Tele"
+    },
+    "b1": {
+      "team": "1909",
+      "dsConnected": false,
+      "dsGood": true,
+      "radioConnected": true,
+      "rioConnected": false,
+      "fmsConnected": true,
+      "bypassed": true,
+      "status": "Bypassed"
+    },
+    "b2": {
+      "team": "543",
+      "dsConnected": true,
+      "dsGood": false,
+      "radioConnected": false,
+      "rioConnected": true,
+      "fmsConnected": true,
+      "bypassed": false,
+      "status": "Tele"
+    },
+    "b3": {
+      "team": "614",
+      "dsConnected": false,
+      "dsGood": true,
+      "radioConnected": true,
+      "rioConnected": false,
+      "fmsConnected": true,
+      "bypassed": false,
+      "status": "Tele"
+    }
+  }
+}
