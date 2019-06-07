@@ -11,6 +11,8 @@ const TeamCardUi = props => {
         cardClass += ' team-card-bypassed';
     } else if (!props.fmsConnected) {
         cardClass += ' team-card-caution';
+    } else {
+        cardClass += ' ' + props.alliance + '-alliance-background';
     }
 
     let dsClass = 'indicator indicator-' + (props.dsConnected ? 'good' : 'bad');

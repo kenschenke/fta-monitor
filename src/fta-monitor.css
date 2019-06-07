@@ -3,6 +3,7 @@
     margin-bottom: 10px;
     color: white;
     padding: 3px 10px;
+    border-radius: 5px;
 }
 
 .status-bar-red {
@@ -22,6 +23,7 @@
     border-width: 3px;
     border-style: solid;
     margin-bottom: 10px;
+    border-radius: 7px;
 }
 
 .team-card-fixed {
@@ -45,15 +47,23 @@
 }
 
 .team-card-bypassed {
-    background-color: #bd6629;
+    background-color: #888; /* #bd9a74; */
 }
 
 .red-alliance {
-    border-color: lightcoral;
+    border-color: #C0504D;
+}
+
+.red-alliance-background {
+    background-color: #e9c2c1;
 }
 
 .blue-alliance {
     border-color: #3474ff;
+}
+
+.blue-alliance-background {
+    background-color: #c9cbff;
 }
 
 .indicator {
