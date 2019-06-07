@@ -7,7 +7,7 @@ class MatchScheduleUi extends React.Component {
         if (this.props.compact) {
             const rows = this.props.matches.map(match => {
                 return (
-                    <tr className={match.match === this.props.currentMatch ? 'table-primary' : ''}>
+                    <tr key={match.match} className={match.match === this.props.currentMatch ? 'table-primary' : ''}>
                         <td>{match.match}</td>
                         <td>{match.sched}</td>
                         <td>{match.r1}<br/>{match.r2}<br/>{match.r3}</td>
@@ -38,7 +38,7 @@ class MatchScheduleUi extends React.Component {
         } else {
             const rows = this.props.matches.map(match => {
                 return (
-                    <tr className={match.match === this.props.currentMatch ? 'table-primary' : ''}>
+                    <tr key={match.match} className={match.match === this.props.currentMatch ? 'table-primary' : ''}>
                         <td>{match.match}</td>
                         <td>{match.sched}</td>
                         <td>{match.r1}</td>

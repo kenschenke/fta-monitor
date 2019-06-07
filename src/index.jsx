@@ -5,6 +5,7 @@ import initialState from './initialState.json';
 import storeFactory from './store';
 import { App } from './components/App.jsx';
 import '../src/fta-monitor.css';
+import '../jquery.signalR';
 
 const store = storeFactory(initialState);
 

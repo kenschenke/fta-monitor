@@ -3,8 +3,15 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const StatusBarUi = props => {
+    let statusClass = 'status-bar';
+    if (props.statusColor === 'red') {
+        statusClass += ' status-bar-red';
+    } else if (props.statusColor === 'green') {
+        statusClass += ' status-bar-green';
+    }
+
     return (
-        <div className="status-bar">
+        <div className={statusClass}>
             <div className="row">
                 <div className="col">{props.match}</div>
                 <div className="col text-center">{props.status}</div>
@@ -17,6 +24,7 @@ const StatusBarUi = props => {
 StatusBarUi.propTypes = {
     match: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
+    statusColor: PropTypes.string.isRequired,
     aheadBehind: PropTypes.string.isRequired
 };
 

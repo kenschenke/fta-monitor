@@ -2,6 +2,7 @@
   "statusBar": {
     "match": "Q32",
     "status": "Ready to Pre-Start",
+    "statusColor": "red",
     "aheadBehind": "6m behind"
   },
   "matches": [
@@ -123,7 +124,11 @@
       "rioConnected": true,
       "fmsConnected": true,
       "bypassed": false,
-      "status": "Tele"
+      "status": "Tele",
+      "battery": 12.02,
+      "tripTime": 10,
+      "bandwidth": 3.912,
+      "missedPackets": 102
     },
     "r2": {
       "team": "1785",
@@ -133,7 +138,11 @@
       "rioConnected": false,
       "fmsConnected": false,
       "bypassed": false,
-      "status": "Disabled"
+      "status": "Disabled",
+      "battery": 12.02,
+      "tripTime": 10,
+      "bandwidth": 3.912,
+      "missedPackets": 102
     },
     "r3": {
       "team": "1777",
@@ -143,7 +152,11 @@
       "rioConnected": true,
       "fmsConnected": true,
       "bypassed": false,
-      "status": "Tele"
+      "status": "Tele",
+      "battery": 12.02,
+      "tripTime": 10,
+      "bandwidth": 3.912,
+      "missedPackets": 102
     },
     "b1": {
       "team": "1909",
@@ -153,7 +166,11 @@
       "rioConnected": false,
       "fmsConnected": true,
       "bypassed": true,
-      "status": "Bypassed"
+      "status": "Bypassed",
+      "battery": 12.02,
+      "tripTime": 10,
+      "bandwidth": 3.912,
+      "missedPackets": 102
     },
     "b2": {
       "team": "543",
@@ -163,7 +180,11 @@
       "rioConnected": true,
       "fmsConnected": true,
       "bypassed": false,
-      "status": "Tele"
+      "status": "Tele",
+      "battery": 12.02,
+      "tripTime": 10,
+      "bandwidth": 3.912,
+      "missedPackets": 102
     },
     "b3": {
       "team": "614",
@@ -173,7 +194,11 @@
       "rioConnected": false,
       "fmsConnected": true,
       "bypassed": false,
-      "status": "Tele"
+      "status": "Tele",
+      "battery": 12.02,
+      "tripTime": 10,
+      "bandwidth": 3.912,
+      "missedPackets": 102
     }
   }
 }

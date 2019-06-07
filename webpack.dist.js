@@ -20,7 +20,6 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             {from: './src/build/index.html', flatten:true},
-            {from: './src/build/signalr.js', flatten:false}
         ])
     ],
     module: {

@@ -14,7 +14,7 @@ const TeamCardUi = props => {
     }
 
     let dsClass = 'indicator indicator-' + (props.dsConnected ? 'good' : 'bad');
-    if (!props.dsGood) {
+    if (props.dsConnected && !props.dsGood) {
         dsClass = 'indicator indicator-good indicator-ds-not-connected';
     }
 
@@ -27,12 +27,12 @@ const TeamCardUi = props => {
                 <div className={'indicator indicator-' + (props.rioConnected ? 'good' : 'bad') }>RIO</div>
             </div>
             <div className="row team-card-stat-row">
-                <div className="col">Battery 12.02</div>
-                <div className="col">Trip 10</div>
+                <div className="col">Battery {props.battery.toFixed(2)}</div>
+                <div className="col">Trip {props.tripTime}</div>
             </div>
             <div className="row team-card-stat-row">
-                <div className="col">BWU 3.912</div>
-                <div className="col">Missed 102</div>
+                <div className="col">BWU {props.bandwidth.toFixed(3)}</div>
+                <div className="col">Missed {props.missedPackets}</div>
             </div>
             <div className="row team-card-stat-row">
                 <div className="col">{props.status}</div>
@@ -51,7 +51,11 @@ TeamCardUi.propTypes = {
     rioConnected: PropTypes.bool.isRequired,
     fmsConnected: PropTypes.bool.isRequired,
     bypassed: PropTypes.bool.isRequired,
-    status: PropTypes.string.isRequired
+    status: PropTypes.string.isRequired,
+    battery: PropTypes.number.isRequired,
+    tripTime: PropTypes.number.isRequired,
+    bandwidth: PropTypes.number.isRequired,
+    missedPackets: PropTypes.number.isRequired
 };
 
 export const TeamCard = connect((state,props) => { return state.teams[props.station] })(TeamCardUi);
