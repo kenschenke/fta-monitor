@@ -2,26 +2,33 @@ import C from '../constants';
 import { combineReducers } from 'redux';
 import objectAssign from 'object-assign';
 
-export const dataReducer = type => (state={}, action) => {
+const hasConnectionErrorReducer = (state = false, action) => {
+    if (action.type === C.SET_HAS_CONNECTION_ERROR) {
+        return action.payload;
+    }
+
+    return state;
+};
+
+const dataReducer = type => (state={}, action) => {
     if (type === action.type) {
         let newState = objectAssign({}, state);
         return objectAssign(newState, action.payload);
-    } else {
-        return state;
     }
+
+    return state;
 };
 
 const matchesReducer = (state=[], action) => {
-    switch (action.type) {
-        case C.SET_MATCHES:
-            return action.payload;
-
-        default:
-            return state;
+    if (action.type === C.SET_MATCHES) {
+        return action.payload;
     }
+
+    return state;
 };
 
 export default combineReducers({
+    hasConnectionError: hasConnectionErrorReducer,
     statusBar: dataReducer(C.SET_STATUSBAR_DATA),
     matches: matchesReducer,
     teams: combineReducers({

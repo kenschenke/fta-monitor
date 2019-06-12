@@ -14,7 +14,11 @@ class AppUi extends React.Component {
     render() {
         return (
             <div style={{padding: 10}}>
-                <div className="d-none d-lg-block">
+                <div className={this.props.hasConnectionError ? 'alert alert-danger' : 'd-none'}>
+                    SignalR Connection Error. Please check connection status and try again.
+                </div>
+
+                <div className={this.props.hasConnectionError ? 'd-none' : 'd-none d-lg-block'}>
                     <div className="row no-gutters">
                         <div className="col col-auto" style={{marginRight: 10}}>
                             <TeamCard alliance="blue" station="b1" fixed={true}/>
@@ -33,7 +37,7 @@ class AppUi extends React.Component {
                     </div>
                 </div>
 
-                <div className="d-none d-sm-block d-lg-none">
+                <div className={this.props.hasConnectionError ? 'd-none' : 'd-none d-sm-block d-lg-none'}>
                     <div className="row no-gutters">
                         <div className="col">
                             <StatusBar/>
@@ -70,7 +74,7 @@ class AppUi extends React.Component {
                     </div>
                 </div>
 
-                <div className="d-sm-none">
+                <div className={this.props.hasConnectionError ? 'd-none' : 'd-sm-none'}>
                     <div className="row no-gutters">
                         <div className="col">
                             <StatusBar/>
@@ -102,7 +106,14 @@ class AppUi extends React.Component {
 }
 
 AppUi.propTypes = {
-    init: PropTypes.func.isRequired
+    init: PropTypes.func.isRequired,
+    hasConnectionError: PropTypes.bool.isRequired
+};
+
+const mapProps = state => {
+    return {
+        hasConnectionError: state.hasConnectionError
+    };
 };
 
 const mapDispatch = dispatch => {
@@ -113,4 +124,4 @@ const mapDispatch = dispatch => {
     };
 };
 
-export const App = connect(null, mapDispatch)(AppUi);
+export const App = connect(mapProps, mapDispatch)(AppUi);

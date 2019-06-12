@@ -1,9 +1,10 @@
 {
+  "hasConnectionError": false,
   "statusBar": {
-    "match": "Q32",
-    "status": "Ready to Pre-Start",
+    "match": "",
+    "status": "Unknown",
     "statusColor": "red",
-    "aheadBehind": "6m behind"
+    "aheadBehind": ""
   },
   "matches": [
     {

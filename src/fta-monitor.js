@@ -81,8 +81,8 @@ export const monitorInit = () => dispatch => {
     // Kick off the main event loop
 
     const fmHub = $.hubConnection();
-    fmHub.url = `${window.location.protocol}//${window.location.hostname}:8189/signalr`;
-    // fmHub.url = 'http://192.168.10.146:8189/signalr';
+    // fmHub.url = `${window.location.protocol}//${window.location.hostname}:8189/signalr`;
+    fmHub.url = 'http://192.168.10.146:8189/signalr';
 
     const fmProxy = fmHub.createHubProxy('fieldMonitorHub');
     fmProxy.on('fieldMonitorDataChanged', data => {
@@ -114,7 +114,9 @@ export const monitorInit = () => dispatch => {
     });
 
     /**
-     * matchStatusInfoChanged sends an integer
+     * matchStatusInfoChanged sends an object
+     *
+     * P1:
      *
      * 0 or 1: nothing to report
      * 2 or 3: waiting for pre-start "READY TO PRE-START"
@@ -131,13 +133,16 @@ export const monitorInit = () => dispatch => {
      * 16: game specific
      * 17: match cancelled "MATCH ABORTED"
      *
+     * P2: match number
+     * P3: ????
+     * P4: ????
      */
 
     fmProxy.on('matchStatusInfoChanged', status => {
         let statusText = '';
         let statusColor = '';
 
-        switch (status) {
+        switch (status.P1) {
             case 2:
             case 3:
                 statusText = 'Ready to Pre-Start';
@@ -203,7 +208,25 @@ export const monitorInit = () => dispatch => {
             type: C.SET_STATUSBAR_DATA,
             payload: {
                 status: statusText,
-                statusColor: statusColor
+                statusColor: statusColor,
+                match: 'Match ' + status.P2
+            }
+        });
+
+        // $.getJSON('http://localhost/FieldMonitor/matchNumberAndPlay', {}, data => {
+        //     dispatch({ type: C.SET_HAS_CONNECTION_ERROR, payload: false });
+        //     dispatch({
+        //         type: C.SET_STATUSBAR_DATA,
+        //         payload: { match: `M: ${data[0]}` }
+        //     });
+        // });
+    });
+
+    fmProxy.on('scheduleAheadBehindChanged', param => {
+        dispatch({
+            type: C.SET_STATUSBAR_DATA,
+            payload: {
+                aheadBehind: param
             }
         });
     });
@@ -212,13 +235,27 @@ export const monitorInit = () => dispatch => {
         .done(function () {
         })
         .fail(function (err) {
-            console.log('failed: ' + err);
-            // $("#monitorData").hide();
-            // $("#monitorDataError").show();
+            dispatch({ type: C.SET_HAS_CONNECTION_ERROR, payload: true });
         });
 
-    // connection.start().then(() => {
-    //     // connection.invoke('fieldMonitorHub');
+    // $.ajax({
+    //     dataType: 'json',
+    //     crossDomain: true,
+    //     headers: { 'Access-Control-Allow-Origin': 'http://localhost', 'Access-Control-Allow-Credentials': true },
+    //     url: 'http://localhost/FieldMonitor/matchNumberAndPlay',
+    //     success: data => {
+    //         dispatch({ type: C.SET_HAS_CONNECTION_ERROR, payload: false });
+    //         dispatch({
+    //             type: C.SET_STATUSBAR_DATA,
+    //             payload: { match: `M: ${data[0]}` }
+    //         });
+    //     }
     // });
-
+    // $.getJSON('http://192.168.10.146/FieldMonitor/matchNumberAndPlay', { crossDomain: true }, data => {
+    //     dispatch({ type: C.SET_HAS_CONNECTION_ERROR, payload: false });
+    //     dispatch({
+    //         type: C.SET_STATUSBAR_DATA,
+    //         payload: { match: `M: ${data[0]}` }
+    //     });
+    // });
 };
